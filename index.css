@@ -61,6 +61,8 @@ body {
 .Header-item {
   margin-left: 8px;
   padding: 4px 8px;
+  color: #FFFFFF;
+  text-decoration: none;
 }
 
 .Header-item:hover {
