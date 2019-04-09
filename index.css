@@ -26,3 +26,22 @@ body {
 ::placeholder {
   color: #aaaaaa;
 }
+
+.Item {
+  padding: 8px;
+  margin-top: 8px;
+  font-size: 20px;
+  border: 1px solid #FFFFFF;
+  transition: 250ms;
+}
+
+.Item--done {
+  text-decoration: line-through;
+  opacity: 0.52;
+}
+
+.Item:hover {
+  cursor: pointer;
+  transform: scale(0.96);
+  transition: 250ms;
+}

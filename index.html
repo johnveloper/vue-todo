@@ -10,9 +10,23 @@
   </head>
 
   <body>
-    <main id=#app" class="Wrapper">
+    <main id="app" class="Wrapper">
       <h1>VueTodo</h1>
-      <input v-model="text" class="Input" placeholder="Type here..." spellcheck="false">
+      <input 
+        v-model="text"
+        @keydown.enter="addItem" 
+        class="Input"
+        placeholder="Type here..." 
+        spellcheck="false"
+      >
+      <div 
+        v-for="item in items"
+        @click="markItemAsDone(item.id)"
+        class="Item"
+        :class="{ 'Item--done': item.done }"
+      >
+        {{ item.text }}
+      </div>
     </main>
     
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
