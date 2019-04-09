@@ -38,7 +38,7 @@ let app = new Vue({
         item.done = !item.done;
         if (item.done && this.moveToBottom) {
           this.items.push(this.items.splice(itemIndex, 1)[0]);
-        } else if (this.moveToTop) {
+        } else if (!item.done && this.moveToTop) {
           this.items.unshift(this.items.splice(itemIndex, 1)[0]);
         }
       }
