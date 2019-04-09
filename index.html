@@ -10,7 +10,9 @@
   </head>
 
   <body>
+
     <main id="app" class="Wrapper">
+
       <header class="Header">
         <h1>VueTodo V1</h1>
         <div class="Header-right">
@@ -19,6 +21,7 @@
           <a href="https://github.com/johnveloper/vue-todo" class="Header-item">GITHUB</a>
         </div>
       </header>
+
       <input 
         v-model="text"
         @keydown.enter="addItem" 
@@ -26,6 +29,7 @@
         placeholder="Type here..." 
         spellcheck="false"
       >
+
       <div 
         v-for="item in items"
         @click="handleItemTap(item.id, $event)"
@@ -34,6 +38,7 @@
       > 
         {{ item.text }}
       </div>
+
       <div class="Modal" v-if="modals.settings" @click.self="toggleModal('settings')">
         <div class="Modal-content">
           <div class="Modal-header">Settings</div>
@@ -55,6 +60,7 @@
           </div>
         </div>
       </div>
+
       <div class="Modal" v-if="modals.help" @click.self="toggleModal('help')">
         <div class="Modal-content">
           <div class="Modal-header">Help</div>
@@ -62,6 +68,7 @@
           <p>Press shift and tap at the todo entry to remove it.</p>
           <p>[Under Development] On mobile, press and hold a todo entry to remove it.</p>
       </div>
+      
     </main>
     
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
