@@ -66,7 +66,16 @@ body {
   justify-content: space-between;
 }
 
-.Header-right {
+@media (max-width: 500px) {
+  .Header {
+    flex-direction: column;
+  }
+  .Header-menu {
+    margin-bottom: 32px;
+  }
+}
+
+.Header-menu {
   display: flex;
   align-items: center;
   font-weight: 500;
