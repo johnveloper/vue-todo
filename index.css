@@ -45,3 +45,25 @@ body {
   transform: scale(0.96);
   transition: 250ms;
 }
+
+.Header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Header-right {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.Header-item {
+  margin-left: 8px;
+  padding: 4px 8px;
+}
+
+.Header-item:hover {
+  cursor: pointer;
+  background: #4023bf;
+}

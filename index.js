@@ -18,18 +18,22 @@ let app = new Vue({
     clearInput: function() {
       this.text = '';
     },
-    markItemAsDone: function(id) {
+    handleItemTap: function(id, e) {
       let itemIndex = this.items.findIndex(
         function(item) {
           return item.id == id;
         }
       );
-      let item = this.items[itemIndex];
-      item.done = !item.done;
-      if (item.done) {
-        this.items.push(this.items.splice(itemIndex, 1)[0]);
-      } else {
-        this.items.unshift(this.items.splice(itemIndex, 1)[0]);
+      if (e.shiftKey) { // remove item
+        this.items.splice(itemIndex, 1);
+      } else { // toggle completion and move to the top/bottom
+        let item = this.items[itemIndex];
+        item.done = !item.done;
+        if (item.done) {
+          this.items.push(this.items.splice(itemIndex, 1)[0]);
+        } else {
+          this.items.unshift(this.items.splice(itemIndex, 1)[0]);
+        }
       }
     }
   }
