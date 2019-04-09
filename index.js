@@ -12,7 +12,8 @@ let app = new Vue({
       moveToTop: true,
       inputRounded: false,
       itemsRounded: false
-    }
+    },
+    timeout: null
   },
   methods: {
     addItem: function() {
@@ -59,6 +60,14 @@ let app = new Vue({
     },
     setTheme: function(color) {
       document.body.style.backgroundColor = color;
+    },
+    handleItemTouchStart: function(id) {
+      this.timeout = setTimeout(function() {
+        app.removeItemAt(app.findIndexOfItemWithId(id));
+      }, 500);
+    },
+    handleItemTouchEnd: function() {
+      clearTimeout(this.timeout);
     }
   }
 });

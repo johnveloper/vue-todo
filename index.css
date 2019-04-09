@@ -56,16 +56,19 @@ body {
   opacity: 0.52;
 }
 
-.Item:hover {
-  cursor: pointer;
-  transform: scale(0.96);
-  transition: 250ms;
+@media (min-width: 501px) {
+  .Item:hover {
+    cursor: pointer;
+    transform: scale(0.96);
+    transition: 250ms;
+  }
 }
 
 .Header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  user-select: none;
 }
 
 @media (max-width: 500px) {
