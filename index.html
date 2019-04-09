@@ -22,13 +22,15 @@
         </div>
       </header>
 
-      <input 
+      <input autofocus novalidate
         v-model="text"
         @keydown.enter="addItem" 
         class="Input"
         :class="{ 'Input--rounded': settings.inputRounded }"
         placeholder="Type here..." 
         spellcheck="false"
+        autocomplete="off"
+        novalidate
       >
 
       <div 
