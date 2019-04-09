@@ -11,5 +11,4 @@ I've used no components or tools for this app (Vue is linked with a `script` tag
 - Style customization for:
   - Rounded corners for input
   - Rounded corners for items
-  - Global background color
-  - Global text color
+  - Color Theme
