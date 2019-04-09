@@ -2,7 +2,8 @@ let app = new Vue({
   el: '#app',
   data: {
     text: '',
-    items: []
+    items: [],
+    settingsModalShown: false
   },
   methods: {
     addItem: function() {
@@ -35,6 +36,9 @@ let app = new Vue({
           this.items.unshift(this.items.splice(itemIndex, 1)[0]);
         }
       }
-    }
+    },
+    toggleSettingsModal: function() {
+      this.settingsModalShown = !this.settingsModalShown;
+    },
   }
 });

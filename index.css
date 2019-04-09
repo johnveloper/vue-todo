@@ -67,3 +67,50 @@ body {
   cursor: pointer;
   background: #4023bf;
 }
+
+.Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(128, 128, 128, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Modal-content {
+  padding: 16px 16px 0 16px;
+  margin: 32px;
+  border-radius: 8px;
+  background: #311B92;
+}
+
+.Modal-header {
+  font-size: 24px;
+}
+
+.Modal-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Modal-switch {
+  height: 16px;
+  width: 16px;
+  margin-right: 8px;
+  border: 1px solid #FFFFFF;
+  border-radius: 12px;
+  transition: 250ms;
+}
+
+.Modal-switch:hover {
+  transition: 250ms;
+  background: #888888;
+}
+
+.Modal-switch--active {
+  background: #FFFFFF;
+}
