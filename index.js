@@ -56,6 +56,9 @@ let app = new Vue({
     },
     toggleSetting: function(setting) {
       this.settings[setting] = !this.settings[setting];
+    },
+    setTheme: function(color) {
+      document.body.style.backgroundColor = color;
     }
   }
 });
