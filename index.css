@@ -94,7 +94,7 @@ body {
 .Modal-row {
   display: flex;
   align-items: center;
-  justify-content: center;
+  margin: 16px 0;
 }
 
 .Modal-switch {
@@ -104,11 +104,6 @@ body {
   border: 1px solid #FFFFFF;
   border-radius: 12px;
   transition: 250ms;
-}
-
-.Modal-switch:hover {
-  transition: 250ms;
-  background: #888888;
 }
 
 .Modal-switch--active {

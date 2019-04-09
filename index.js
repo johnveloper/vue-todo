@@ -1,10 +1,15 @@
 let app = new Vue({
   el: '#app',
   data: {
+    // todo
     text: '',
     items: [],
+    // modals
     settingsModalShown: false,
     helpModalShown: false,
+    // settings
+    moveToBottom: true,
+    moveToTop: true
   },
   methods: {
     addItem: function() {
@@ -31,9 +36,9 @@ let app = new Vue({
       } else { // toggle completion and move to the top/bottom
         let item = this.items[itemIndex];
         item.done = !item.done;
-        if (item.done) {
+        if (item.done && this.moveToBottom) {
           this.items.push(this.items.splice(itemIndex, 1)[0]);
-        } else {
+        } else if (this.moveToTop) {
           this.items.unshift(this.items.splice(itemIndex, 1)[0]);
         }
       }
@@ -44,5 +49,8 @@ let app = new Vue({
     toggleHelpModal: function() {
       this.helpModalShown = !this.helpModalShown;
     },
+    toggleSetting: function(settingKey) {
+      this[settingKey] = !this[settingKey];
+    }
   }
 });

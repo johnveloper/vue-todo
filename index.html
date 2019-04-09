@@ -37,8 +37,20 @@
         <div class="Modal-content">
           <div class="Modal-header">Settings</div>
           <div class="Modal-row">
-            <div class="Modal-switch"></div>
-            <p>Move completed items to the bottom</p>
+            <div 
+              class="Modal-switch"
+              :class="{ 'Modal-switch--active': moveToBottom }"
+              @click="toggleSetting('moveToBottom')"
+            ></div>
+            Move finished tasks to the bottom
+          </div>
+          <div class="Modal-row">
+            <div 
+              class="Modal-switch"
+              :class="{ 'Modal-switch--active': moveToTop }"
+              @click="toggleSetting('moveToTop')"
+            ></div>
+            Move unfinished tasks to the top
           </div>
         </div>
       </div>
