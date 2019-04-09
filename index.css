@@ -21,6 +21,14 @@ body {
   font-size: 32px;
   font-weight: 100;
   outline: 0;
+  transition: 500ms;
+}
+
+.Input--rounded {
+  border-radius: 32px;
+  width: calc(100% - 32px);
+  padding: 8px 16px;
+  transition: 500ms;
 }
 
 ::placeholder {
@@ -32,6 +40,12 @@ body {
   margin-top: 8px;
   font-size: 20px;
   border: 1px solid #FFFFFF;
+  transition: 250ms;
+}
+
+.Item--rounded {
+  padding: 8px 16px;
+  border-radius: 32px;
   transition: 250ms;
 }
 

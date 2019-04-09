@@ -9,7 +9,9 @@ let app = new Vue({
     },
     settings: {
       moveToBottom: true,
-      moveToTop: true      
+      moveToTop: true,
+      inputRounded: false,
+      itemsRounded: false
     }
   },
   methods: {
