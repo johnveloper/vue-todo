@@ -11,3 +11,18 @@ body {
   padding: 16px;
   margin: auto;
 }
+
+.Input {
+  border: 2px solid #FFFFFF;
+  background: #311B92;
+  width: calc(100% - 16px);
+  padding: 8px;
+  color: #FFFFFF;
+  font-size: 32px;
+  font-weight: 100;
+  outline: 0;
+}
+
+::placeholder {
+  color: #aaaaaa;
+}
