@@ -1,15 +1,16 @@
 let app = new Vue({
   el: '#app',
   data: {
-    // todo
     text: '',
     items: [],
-    // modals
-    settingsModalShown: false,
-    helpModalShown: false,
-    // settings
-    moveToBottom: true,
-    moveToTop: true
+    modals: {
+      settings: false,
+      help: false,      
+    },
+    settings: {
+      moveToBottom: true,
+      moveToTop: true      
+    }
   },
   methods: {
     addItem: function() {
@@ -20,37 +21,39 @@ let app = new Vue({
           done: false
         });
       }
-      this.clearInput(); 
-    },
-    clearInput: function() {
       this.text = '';
     },
-    handleItemTap: function(id, e) {
-      let itemIndex = this.items.findIndex(
-        function(item) {
-          return item.id == id;
-        }
-      );
-      if (e.shiftKey) { // remove item
-        this.items.splice(itemIndex, 1);
-      } else { // toggle completion and move to the top/bottom
-        let item = this.items[itemIndex];
-        item.done = !item.done;
-        if (item.done && this.moveToBottom) {
-          this.items.push(this.items.splice(itemIndex, 1)[0]);
-        } else if (!item.done && this.moveToTop) {
-          this.items.unshift(this.items.splice(itemIndex, 1)[0]);
+    handleItemTap: function(id, event) {
+      const index = this.findIndexOfItemWithId(id);
+      if (event.shiftKey) {
+        this.removeItemAt(index);
+      } else {
+        let item = this.toggleItemAt(index);
+        if (item.done && this.settings.moveToBottom) {
+          this.items.push(this.items.splice(index, 1)[0]);
+        } else if (!item.done && this.settings.moveToTop) {
+          this.items.unshift(this.items.splice(index, 1)[0]);
         }
       }
     },
-    toggleSettingsModal: function() {
-      this.settingsModalShown = !this.settingsModalShown;
+    findIndexOfItemWithId: function(id) {
+      return this.items.findIndex(
+        function(item) { return item.id == id; }
+      );
     },
-    toggleHelpModal: function() {
-      this.helpModalShown = !this.helpModalShown;
+    toggleItemAt: function(index) {
+      let item = this.items[index];
+      item.done = !item.done;
+      return item;
     },
-    toggleSetting: function(settingKey) {
-      this[settingKey] = !this[settingKey];
+    removeItemAt: function(index) {
+      this.items.splice(index, 1);
+    },
+    toggleModal: function(modal) {
+      this.modals[modal] = !this.modals[modal];
+    },
+    toggleSetting: function(setting) {
+      this.settings[setting] = !this.settings[setting];
     }
   }
 });

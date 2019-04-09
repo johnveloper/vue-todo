@@ -14,8 +14,8 @@
       <header class="Header">
         <h1>VueTodo</h1>
         <div class="Header-right">
-          <div @click="toggleHelpModal" class="Header-item">HELP</div>
-          <div @click="toggleSettingsModal" class="Header-item">SETTINGS</div>
+          <div @click="toggleModal('help')" class="Header-item">HELP</div>
+          <div @click="toggleModal('settings')" class="Header-item">SETTINGS</div>
         </div>
       </header>
       <input 
@@ -33,13 +33,13 @@
       > 
         {{ item.text }}
       </div>
-      <div class="Modal" v-if="settingsModalShown" @click.self="toggleSettingsModal">
+      <div class="Modal" v-if="modals.settings" @click.self="toggleModal('settings')">
         <div class="Modal-content">
           <div class="Modal-header">Settings</div>
           <div class="Modal-row">
             <div 
               class="Modal-switch"
-              :class="{ 'Modal-switch--active': moveToBottom }"
+              :class="{ 'Modal-switch--active': settings.moveToBottom }"
               @click="toggleSetting('moveToBottom')"
             ></div>
             Move finished tasks to the bottom
@@ -47,14 +47,14 @@
           <div class="Modal-row">
             <div 
               class="Modal-switch"
-              :class="{ 'Modal-switch--active': moveToTop }"
+              :class="{ 'Modal-switch--active': settings.moveToTop }"
               @click="toggleSetting('moveToTop')"
             ></div>
             Move unfinished tasks to the top
           </div>
         </div>
       </div>
-      <div class="Modal" v-if="helpModalShown" @click.self="toggleHelpModal">
+      <div class="Modal" v-if="modals.help" @click.self="toggleModal('help')">
         <div class="Modal-content">
           <div class="Modal-header">Help</div>
           <p>Tap on todo entry to toggle its completion status.</p>
