@@ -3,7 +3,8 @@ let app = new Vue({
   data: {
     text: '',
     items: [],
-    settingsModalShown: false
+    settingsModalShown: false,
+    helpModalShown: false,
   },
   methods: {
     addItem: function() {
@@ -39,6 +40,9 @@ let app = new Vue({
     },
     toggleSettingsModal: function() {
       this.settingsModalShown = !this.settingsModalShown;
+    },
+    toggleHelpModal: function() {
+      this.helpModalShown = !this.helpModalShown;
     },
   }
 });
